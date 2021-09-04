@@ -119,31 +119,35 @@ export const WorkerHelpers = function(ammoWorker) {
     });
   };
 
-  const applyForceToBody = function(uuid) {
+  const applyForceToBody = function(uuid,vec) {
     ammoWorker.postMessage({
       type: MESSAGE_TYPES.APPLY_FORCE,
-      uuid
+      uuid,
+      vec
     });
   };
 
-  const applyImpulseToBody = function(uuid) {
+  const applyImpulseToBody = function(uuid,vec) {
     ammoWorker.postMessage({
       type: MESSAGE_TYPES.APPLY_IMPULSE,
-      uuid
+      uuid,
+      vec
     });
   };
 
-  const setLinearVelocity = function(uuid) {
+  const setLinearVelocity = function(uuid,vec) {
     ammoWorker.postMessage({
       type: MESSAGE_TYPES.SET_LINEAR_VELOCITY,
-      uuid
+      uuid,
+      vec
     });
   };
 
-  const setAngularVelocity = function(uuid) {
+  const setAngularVelocity = function(uuid,vec) {
     ammoWorker.postMessage({
       type: MESSAGE_TYPES.SET_ANGULAR_VELOCITY,
-      uuid
+      uuid,
+      vec
     });
   };
 

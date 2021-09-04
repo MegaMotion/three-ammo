@@ -288,12 +288,12 @@ function activateBody({ uuid }) {
   }
 }
 
-function applyForceToBody({ uuid }) {
+function applyForceToBody({ uuid, vec }) {
   if (bodies[uuid]) {
-    let x_var = Math.random() * 4 - 2;
-    let z_var = Math.random() * 4 - 2;
-    bodies[uuid].physicsBody.getLinearVelocity().setValue(x_var,10,z_var);
-    console.log("trying to apply force to body! ammo.worker!!  ");// + val.toString() );
+    //let x_var = Math.random() * 4 - 2;
+    //let z_var = Math.random() * 4 - 2;
+    bodies[uuid].physicsBody.getLinearVelocity().setValue(vec.x,vec.y,vec.z);
+    console.log("trying to apply force to body! ammo.worker!!  " + vec.y.toString());// + val.toString() );
     let impulseVec = new THREE.Vector3(0,50,0);
     //let posVec = new THREE.Vector3(0,0,0);
     //let tbv30 = new THREE.Vector3(x_var,1000,z_var);
@@ -302,7 +302,7 @@ function applyForceToBody({ uuid }) {
   }
 }
 
-function applyImpulseToBody({ uuid }) {
+function applyImpulseToBody({ uuid, vec }) {
   if (bodies[uuid]) {
     let x_var = Math.random() * 4 - 2;
     let z_var = Math.random() * 4 - 2;
@@ -317,7 +317,7 @@ function applyImpulseToBody({ uuid }) {
   }
 }
 
-function setLinearVelocity({ uuid }) {
+function setLinearVelocity({ uuid, vec }) {
   if (bodies[uuid]) {
     let x_var = Math.random() * 4 - 2;
     let z_var = Math.random() * 4 - 2;
@@ -326,10 +326,10 @@ function setLinearVelocity({ uuid }) {
   }
 }
 
-function setAngularVelocity({ uuid }) {
+function setAngularVelocity({ uuid, vec }) {
   if (bodies[uuid]) {
     bodies[uuid].physicsBody.getAngularVelocity().setValue(0,1,0);
-    console.log("setting angular velocity on ammo.worker!");// + val.toString() );
+    console.log("setting angular velocity on ammo.worker!  "  + vec.y.toString());// + val.toString() );
   }
 }
 
@@ -457,6 +457,21 @@ onmessage = async event => {
       }
       
       case MESSAGE_TYPES.APPLY_FORCE: {
+        messageQueue.push(event.data);
+        break;
+      }
+
+      case MESSAGE_TYPES.APPLY_IMPULSE: {
+        messageQueue.push(event.data);
+        break;
+      }
+      
+      case MESSAGE_TYPES.SET_LINEAR_VELOCITY: {
+        messageQueue.push(event.data);
+        break;
+      }
+      
+      case MESSAGE_TYPES.SET_ANGULAR_VELOCITY: {
         messageQueue.push(event.data);
         break;
       }
