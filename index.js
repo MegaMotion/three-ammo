@@ -12,7 +12,7 @@ export const WorkerHelpers = function(ammoWorker) {
   const inverse = new THREE.Matrix4();
 
   const addBody = function(uuid, mesh, options = {}) {
-    inverse.copy(mesh.parent.matrixWorld).invert();
+    inverse.getInverse(mesh.parent.matrixWorld);
     transform.multiplyMatrices(inverse, mesh.matrixWorld);
     ammoWorker.postMessage({
       type: MESSAGE_TYPES.ADD_BODY,
@@ -31,7 +31,7 @@ export const WorkerHelpers = function(ammoWorker) {
 
   const addShapes = function(bodyUuid, shapesUuid, mesh, options = {}) {
     if (mesh) {
-      inverse.copy(mesh.parent.matrix).invert();
+      inverse.getInverse(mesh.parent.matrix);
       transform.multiplyMatrices(inverse, mesh.parent.matrix);
       const vertices = [];
       const matrices = [];
@@ -119,6 +119,13 @@ export const WorkerHelpers = function(ammoWorker) {
     });
   };
 
+  const applyForceToBody = function(uuid) {
+    ammoWorker.postMessage({
+      type: MESSAGE_TYPES.APPLY_FORCE,
+      uuid
+    });
+  };
+
   return {
     addBody,
     updateBody,
@@ -129,6 +136,7 @@ export const WorkerHelpers = function(ammoWorker) {
     removeConstraint,
     enableDebug,
     resetDynamicBody,
-    activateBody
+    activateBody,
+    applyForceToBody
   };
 };

@@ -104,6 +104,9 @@ const tick = () => {
           break;
         case MESSAGE_TYPES.ACTIVATE_BODY:
           activateBody(message);
+          break;
+        case MESSAGE_TYPES.APPLY_FORCE:
+          applyForceToBody(message);
       }
     }
 
@@ -276,6 +279,23 @@ function activateBody({ uuid }) {
   }
 }
 
+function applyForceToBody({ uuid }) {
+  if (bodies[uuid]) {  
+    let x_var = Math.random() * 4 - 2;
+    let z_var = Math.random() * 4 - 2;
+    bodies[uuid].physicsBody.getLinearVelocity().setValue(x_var,10,z_var);
+    console.log("trying to apply force to body! ammo.worker!!  ");// + val.toString() );  
+    //bodies[uuid].physicsBody.getAngularVelocity().setValue(0, 5, 0);
+    //let impulseVec = new THREE.Vector3(0,50000,0);
+    //let posVec = new THREE.Vector3(0,0,0);
+    //bodies[uuid].physicsBody.applyImpulse(impulseVec,posVec);//impulseVec  
+    //let tbv30 = new THREE.Vector3(x_var,1000,z_var);
+    //tbv30.setValue(x_var,1000,z_var);
+    //bodies[uuid].physicsBody.applyForce(tbv30);
+    //bodies[uuid].physicsBody.applyCentralImpulse(tbv30);
+  }
+}
+
 onmessage = async event => {
   if (event.data.type === MESSAGE_TYPES.INIT) {
     const AmmoModule = initializeWasm(event.data.wasmUrl);
@@ -395,6 +415,11 @@ onmessage = async event => {
       }
 
       case MESSAGE_TYPES.ACTIVATE_BODY: {
+        messageQueue.push(event.data);
+        break;
+      }
+      
+      case MESSAGE_TYPES.APPLY_FORCE: {
         messageQueue.push(event.data);
         break;
       }

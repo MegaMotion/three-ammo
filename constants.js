@@ -64,7 +64,7 @@ module.exports = {
     RESET_DYNAMIC_BODY: 11,
     ACTIVATE_BODY: 12,
     TRANSFER_DATA: 13,
-    ADD_FORCE: 14
+    APPLY_FORCE: 14
   },
   BUFFER_CONFIG: {
     HEADER_LENGTH: 2,
