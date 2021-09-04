@@ -41,8 +41,4 @@
     "three",
     "three.js"
   ]
-
-,"_resolved": "https://registry.npmjs.org/three-ammo/-/three-ammo-1.0.12.tgz"
-,"_integrity": "sha512-lGA0RmdqvFHb84Glc/VHnMlWSU+Bywu7tu6Sb3woQVt+2Qm8UGSws4VIfzW7aYmMk3Vf1SHBSQfbwW0LWK+HCA=="
-,"_from": "three-ammo@1.0.12"
 }
