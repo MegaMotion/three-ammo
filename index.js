@@ -126,6 +126,27 @@ export const WorkerHelpers = function(ammoWorker) {
     });
   };
 
+  const applyImpulseToBody = function(uuid) {
+    ammoWorker.postMessage({
+      type: MESSAGE_TYPES.APPLY_IMPULSE,
+      uuid
+    });
+  };
+
+  const setLinearVelocity = function(uuid) {
+    ammoWorker.postMessage({
+      type: MESSAGE_TYPES.SET_LINEAR_VELOCITY,
+      uuid
+    });
+  };
+
+  const setAngularVelocity = function(uuid) {
+    ammoWorker.postMessage({
+      type: MESSAGE_TYPES.SET_ANGULAR_VELOCITY,
+      uuid
+    });
+  };
+
   return {
     addBody,
     updateBody,
@@ -137,6 +158,9 @@ export const WorkerHelpers = function(ammoWorker) {
     enableDebug,
     resetDynamicBody,
     activateBody,
-    applyForceToBody
+    applyForceToBody,
+    applyImpulseToBody,
+    setLinearVelocity,
+    setAngularVelocity
   };
 };
