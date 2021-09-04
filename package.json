@@ -27,7 +27,7 @@
     "file-loader": "^5.0.2",
     "prettier": "^1.19.1",
     "stats.js": "^0.17.0",
-    "three": "^0.128.0",
+    "three": "^0.112.0",
     "three-to-ammo": "github:infinitelee/three-to-ammo",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
@@ -41,4 +41,8 @@
     "three",
     "three.js"
   ]
+
+,"_resolved": "https://registry.npmjs.org/three-ammo/-/three-ammo-1.0.12.tgz"
+,"_integrity": "sha512-lGA0RmdqvFHb84Glc/VHnMlWSU+Bywu7tu6Sb3woQVt+2Qm8UGSws4VIfzW7aYmMk3Vf1SHBSQfbwW0LWK+HCA=="
+,"_from": "three-ammo@1.0.12"
 }
