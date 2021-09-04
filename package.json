@@ -9,7 +9,7 @@
     "url": "https://github.com/infinitelee/three-ammo/issues"
   },
   "main": "index.js",
-  "repository": "infinitelee/three-ammo",
+  "repository": "github:MegaMotion/three-ammo#hubbub",
   "scripts": {
     "dev": "webpack-dev-server --mode=development",
     "build": "rimraf ./dist && webpack --mode=production"
