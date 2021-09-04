@@ -1,4 +1,8 @@
-# three-ammo
+# three-ammo - HubbubVR version
+
+This is a fork of three-ammo intended to provide additional ammo.js functionality, including but not limited to supporting applyForce, applyImpulse, and setLinearVelocity functions for physics bodies.
+
+-----------------------
 
 A [three.js](https://github.com/mrdoob/three.js/) wrapper for [Ammo.js](https://github.com/kripken/ammo.js/) that can run in a web-worker using Shared Array Buffers or PostMessage. Primarily for use with [Mozilla Hubs](https://github.com/mozilla/hubs).
 
