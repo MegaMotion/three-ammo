@@ -290,46 +290,40 @@ function activateBody({ uuid }) {
 
 function applyForceToBody({ uuid, vec }) {
   if (bodies[uuid]) {
-    //let x_var = Math.random() * 4 - 2;
-    //let z_var = Math.random() * 4 - 2;
-    bodies[uuid].physicsBody.getLinearVelocity().setValue(vec.x,vec.y,vec.z);
-    console.log("trying to apply force to body! ammo.worker!!  " + vec.y.toString());// + val.toString() );
-    let impulseVec = new THREE.Vector3(0,50,0);
+    //bodies[uuid].physicsBody.getLinearVelocity().setValue(vec.x,vec.y,vec.z);
+    console.log("trying to apply force to body! ammo.worker!!  " + vec.x.toString() + " " + vec.y.toString() + " " + vec.z.toString());
+    //let impulseVec = new THREE.Vector3(0,50,0);
     //let posVec = new THREE.Vector3(0,0,0);
     //let tbv30 = new THREE.Vector3(x_var,1000,z_var);
     //tbv30.setValue(x_var,1000,z_var);
-    bodies[uuid].physicsBody.applyForce(impulseVec);
+    bodies[uuid].physicsBody.applyForce(vec);
   }
 }
 
 function applyImpulseToBody({ uuid, vec }) {
   if (bodies[uuid]) {
-    let x_var = Math.random() * 4 - 2;
-    let z_var = Math.random() * 4 - 2;
-    bodies[uuid].physicsBody.getLinearVelocity().setValue(x_var,10,z_var);
-    console.log("trying to apply force to body! ammo.worker!!  ");// + val.toString() );
-    let impulseVec = new THREE.Vector3(0,50,0);
+    //bodies[uuid].physicsBody.getLinearVelocity().setValue(vec.x,vec.y,vec.z);
+    console.log("trying to apply impulse to body! ammo.worker!!  " + vec.x.toString() + " " + vec.y.toString() + " " + vec.z.toString());// + val.toString() );
+    //let impulseVec = new THREE.Vector3(0,50,0);
     //let posVec = new THREE.Vector3(0,0,0); //NOPE: needs world position
     //let tbv30 = new THREE.Vector3(x_var,1000,z_var);
     //tbv30.setValue(x_var,1000,z_var);
     //bodies[uuid].physicsBody.applyImpulse(impulseVec,posVec);//impulseVec
-    bodies[uuid].physicsBody.applyCentralImpulse(impulseVec);
+    bodies[uuid].physicsBody.applyCentralImpulse(vec);
   }
 }
 
 function setLinearVelocity({ uuid, vec }) {
   if (bodies[uuid]) {
-    let x_var = Math.random() * 4 - 2;
-    let z_var = Math.random() * 4 - 2;
-    bodies[uuid].physicsBody.getLinearVelocity().setValue(x_var,10,z_var);
-    console.log("setting linear velocity on ammo.worker!");// + val.toString() );
+    bodies[uuid].physicsBody.getLinearVelocity().setValue(vec.x,vec.y,vec.z);
+    console.log("setting linear velocity on ammo.worker!" + vec.x.toString() + " " + vec.y.toString() + " " + vec.z.toString());// + val.toString() );
   }
 }
 
 function setAngularVelocity({ uuid, vec }) {
   if (bodies[uuid]) {
-    bodies[uuid].physicsBody.getAngularVelocity().setValue(0,1,0);
-    console.log("setting angular velocity on ammo.worker!  "  + vec.y.toString());// + val.toString() );
+    bodies[uuid].physicsBody.getAngularVelocity().setValue(vec.x,vec.y,vec.z);
+    console.log("setting angular velocity on ammo.worker!  " + vec.x.toString() + " " + vec.y.toString() + " " + vec.z.toString());// + val.toString() );
   }
 }
 
